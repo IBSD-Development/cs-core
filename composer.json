@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "oro/platform": "1.8.*"
+        "oro/platform": "1.8.*",
+        "oro/crm": "1.8.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.5.3"
