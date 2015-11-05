@@ -111,3 +111,15 @@ Github OAuth token should be configured in package manager settings
 [3]:  http://dev.mysql.com/doc/refman/5.6/en/optimizing-innodb-diskio.html
 [4]:  https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [5]:  http://symfony.com/doc/2.3/cookbook/configuration/web_server_configuration.html
+
+
+## IBSD Installation STEPS
+ [1]: Copy the parameters yml
+ [2]: start the vagrant and mysqld inside the vagrant
+ [3]: Install the app
+    php app/console oro:install --force --drop-database --env=dev
+ [4]: remove the cache from app
+    rm -rf app/cache
+ [5]: Clear the Cache
+    php app/console cache:clear --env dev
+ [6]: Add the 
