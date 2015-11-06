@@ -122,3 +122,17 @@ Github OAuth token should be configured in package manager settings
     rm -rf app/cache
  [5]: Clear the Cache
     php app/console cache:clear --env prod
+
+## Optimize the Application Runtime
+ set realpath_cache_size = 2M
+ 
+ disabled XDebug completely
+    xdebug.remote_autostart=0
+    xdebug.remote_enable=0
+    xdebug.profiler_enable=0
+    
+ realpath_cache_ttl=7200
+ 
+ restarted Apache in order to have php.ini reloaded
+ 
+ restart vagrant
