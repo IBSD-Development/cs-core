@@ -114,12 +114,11 @@ Github OAuth token should be configured in package manager settings
 
 
 ## IBSD Installation STEPS
- [1]: Copy the parameters yml
+ [1]: Copy the parameters into app/config/parameters.yml
  [2]: start the vagrant and mysqld inside the vagrant
  [3]: Install the app
-    php app/console oro:install --force --drop-database --env=dev
+    php app/console oro:install --force --drop-database --env prod --timeout=99999
  [4]: remove the cache from app
     rm -rf app/cache
  [5]: Clear the Cache
-    php app/console cache:clear --env dev
- [6]: Add the 
+    php app/console cache:clear --env prod
