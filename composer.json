@@ -12,11 +12,15 @@
         {
             "type": "composer",
             "url": "http://packagist.orocrm.com"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IBSD-Development/crm"
         }
     ],
     "require": {
         "oro/platform": "1.8.*",
-        "oro/crm": "1.8.*"
+        "oro/crm": "dev-custom"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.5.3"
