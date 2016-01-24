@@ -124,6 +124,7 @@ Github OAuth token should be configured in package manager settings
     php app/console cache:clear --env prod
 
 ## Optimize the Application Runtime
+[1]: Changes in php.ini file
  set realpath_cache_size = 2M
  
  disabled XDebug completely
@@ -132,7 +133,14 @@ Github OAuth token should be configured in package manager settings
     xdebug.profiler_enable=0
     
  realpath_cache_ttl=7200
- 
- restarted Apache in order to have php.ini reloaded
- 
- restart vagrant
+
+ [2]: Changes in the cs-core inside vagrant
+ cd /var/www/cs-core/vendor/twig/twig/ext/twig
+ phpize
+ ./configure
+ make
+ make install
+
+ Add extension=twig.so in the php ini file
+
+ restart Apache in order to have php.ini reloaded
