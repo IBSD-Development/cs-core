@@ -31,4 +31,14 @@ class AppKernel extends OroKernel
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
+
+    public function getCacheDir()
+    {
+        return '/var/resources/'.$this->environment.'/cache';
+    }
+
+    public function getLogDir()
+    {
+        return '/var/resources/'.$this->environment.'/logs';
+    }
 }
