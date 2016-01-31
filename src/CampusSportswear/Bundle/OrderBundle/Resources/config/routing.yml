@@ -1,0 +1,3 @@
+campus_sportswear_order_homepage:
+    path:     /
+    defaults: { _controller: CampusSportswearOrderBundle:Default:index }

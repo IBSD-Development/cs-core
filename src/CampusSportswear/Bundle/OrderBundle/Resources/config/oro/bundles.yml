@@ -1,0 +1,3 @@
+# src/CampusSportswear/Bundle/OrderBundle/Resources/config/oro/bundles.yml
+bundles:
+    - CampusSportswear\Bundle\OrderBundle\CampusSportswearOrderBundle

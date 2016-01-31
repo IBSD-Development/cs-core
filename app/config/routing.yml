@@ -1,3 +1,7 @@
+campus_sportswear_order:
+    resource: "@CampusSportswearOrderBundle/Resources/config/routing.yml"
+    prefix:   /cs
+
 #
 # 3rd party routes
 #
