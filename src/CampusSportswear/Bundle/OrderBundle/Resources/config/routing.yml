@@ -1,3 +1,15 @@
-campus_sportswear_order_homepage:
+campus_sportswear_order.order_summary:
     path:     /
-    defaults: { _controller: CampusSportswearOrderBundle:Default:index }
+    defaults: { _controller: CampusSportswearOrderBundle:Order:index }
+
+campus_sportswear_order.order_view:
+    path:     /orders/{id}
+    defaults: { _controller: CampusSportswearOrderBundle:Order:view }
+
+campus_sportswear_order.order_update:
+    path:     /orders/{id}/update
+    defaults: { _controller: CampusSportswearOrderBundle:Order:update }
+
+campus_sportswear_order.order_delete:
+    path:     /orders/{id}/delete
+    defaults: { _controller: CampusSportswearOrderBundle:Order:delete }

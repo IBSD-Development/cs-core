@@ -2,78 +2,83 @@
 
 namespace CampusSportswear\Bundle\OrderBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * CampusSportswearOrder
+ * @ORM\Entity
+ * @ORM\Table(name="cs_orders")
  */
 class CampusSportswearOrder
 {
     /**
-     * @var integer
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var integer
+     * @ORM\Column(name="account_id", type="integer")
      */
     private $accountId;
 
     /**
-     * @var string
+     * @ORM\Column(name="item_description", type="text")
      */
     private $itemDescription;
 
     /**
-     * @var integer
+     * @ORM\Column(name="item_quantity", type="integer")
      */
     private $itemQuantity;
 
     /**
-     * @var float
+     * @ORM\Column(name="item_quoted_price", type="float")
      */
     private $itemQuotedPrice;
 
     /**
-     * @var float
+     * @ORM\Column(name="item_recommended_price", type="float")
      */
     private $itemRecommendedPrice;
 
     /**
-     * @var string
+     * @ORM\Column(name="order_address", type="string", length=255)
      */
     private $orderAddress;
 
     /**
-     * @var string
+     * @ORM\Column(name="comment", type="text")
      */
     private $comment;
 
     /**
-     * @var string
+     * @ORM\Column(name="item_graphic", type="string", length=255)
      */
     private $itemGraphic;
 
     /**
-     * @var integer
+     * @ORM\Column(name="order_status", type="smallint")
      */
     private $orderStatus;
 
     /**
-     * @var integer
+     * @ORM\Column(name="user_id", type="integer")
      */
     private $userId;
 
     /**
-     * @var \DateTime
+     * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var \DateTime
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
 
     /**
-     * @var integer
+     * @ORM\Column(name="updated_by", type="integer")
      */
     private $updatedBy;
 

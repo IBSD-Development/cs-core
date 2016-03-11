@@ -1,0 +1,90 @@
+# src/CampusSportswearOrderBundle/Resources/config/datagrid.yml
+datagrid:
+    order-grid:
+        source:
+            type: orm
+            query:
+                select:
+                    - cs_order
+                from:
+                    - { table: CampusSportswearOrderBundle:CampusSportswearOrder, alias: cs_order }
+        columns:
+            id:
+              label: 'Serial No.'
+            accountId:
+              label: 'Customer'
+            itemDescription:
+              label: 'Description'
+            itemQuantity:
+              label: 'Quantity'
+            itemQuotedPrice:
+              label: 'Quoted Price'
+              frontend_type: 'decimal'
+            itemRecommendedPrice:
+              label: 'Recommended Price'
+              frontend_type: 'decimal'
+            userId:
+              label: 'User'
+            createdAt:
+              label: 'Date Created'
+              frontend_type: 'datetime'
+            updatedAt:
+              label: 'Date Updated'
+              frontend_type: 'datetime'
+            updatedBy:
+              label: 'Updated By'
+
+        properties:
+            id: ~
+            update_link:
+                type: url
+                route: campus_sportswear_order.order_update
+                params:
+                    - id
+            view_link:
+                type: url
+                route: campus_sportswear_order.order_view
+                params:
+                    - id
+            delete_link:
+                type: url
+                route: campus_sportswear_order.order_delete
+                params:
+                    - id
+        sorters:
+            columns:
+                id:
+                    data_name: cs_order.id
+                createdAt:
+                    data_name: cs_order.created_at
+                updatedAt:
+                    data_name: cs_order.updated_at
+                updatedBy:
+                    data_name: cs_order.updated_by
+            default:
+                id: DESC
+        filters:
+            columns:
+                accountId:
+                    type: number
+                    data_name: cs_order.account_id
+                createdBy:
+                    type: number
+                    data_name: cs_order.created_by
+        actions:
+            view:
+                type:          navigate
+                label:         View
+                link:          view_link
+                icon:          eye-open
+                rowAction:     true
+            update:
+                type:          navigate
+                label:         Update
+                link:          update_link
+                icon:          edit
+            delete:
+                type:          delete
+                label:         Delete
+                link:          delete_link
+                icon:          trash

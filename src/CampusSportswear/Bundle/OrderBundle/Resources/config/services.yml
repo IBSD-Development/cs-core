@@ -2,3 +2,5 @@ services:
 #    campus_sportswear_order.example:
 #        class: CampusSportswear\Bundle\OrderBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+parameters:
+    CampusSportswearOrder.cs_orders.entity.class: CampusSportswear\Bundle\OrderBundle\Entity\CampusSportswearOrder
