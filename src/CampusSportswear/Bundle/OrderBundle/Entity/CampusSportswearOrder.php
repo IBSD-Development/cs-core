@@ -13,6 +13,11 @@ class CampusSportswearOrder
     private $id;
 
     /**
+     * @var integer
+     */
+    private $accountId;
+
+    /**
      * @var string
      */
     private $itemDescription;
@@ -53,6 +58,11 @@ class CampusSportswearOrder
     private $orderStatus;
 
     /**
+     * @var integer
+     */
+    private $userId;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -62,6 +72,10 @@ class CampusSportswearOrder
      */
     private $updatedAt;
 
+    /**
+     * @var integer
+     */
+    private $updatedBy;
 
     /**
      * Get id
@@ -312,5 +326,57 @@ class CampusSportswearOrder
     {
         return $this->updatedAt;
     }
+
+    /**
+     * Get account id of order
+     *
+     * @return account
+     */
+    public function getAccountId()
+    {
+        return $this->accountId;
+    }
+
+    /**
+     * @param mixed $accountId
+     */
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param mixed $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+    /**
+     * @param mixed $updatedBy
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+    }
+
+
 }
 

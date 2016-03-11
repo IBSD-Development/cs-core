@@ -12,4 +12,4 @@ fi
 
 run_in_vagrant -c "sudo rm -rf /var/www/cs-core"
 run_in_vagrant -c "sudo ln -s /campusSportswear/cs-core /var/www/cs-core"
-run_in_vagrant -c "cd /var/www/cs-core && sudo php app/console oro:migration:load"
+run_in_vagrant -c "cd /var/www/cs-core && sudo php app/console oro:migration:load --force"
