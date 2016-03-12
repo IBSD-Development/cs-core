@@ -13,8 +13,8 @@ datagrid:
               label: 'Serial No.'
             account:
               label: 'Customer'
-            itemDescription:
-              label: 'Description'
+            orderStatus:
+              label: 'Status'
             itemQuantity:
               label: 'Quantity'
             itemQuotedPrice:
@@ -23,14 +23,14 @@ datagrid:
             itemRecommendedPrice:
               label: 'Recommended Price'
               frontend_type: 'decimal'
-            user:
-              label: 'User'
             createdAt:
               label: 'Date Created'
               frontend_type: 'datetime'
             updatedAt:
               label: 'Date Updated'
               frontend_type: 'datetime'
+            user:
+              label: 'Owner'
             updatedBy:
               label: 'Updated By'
 
@@ -55,13 +55,16 @@ datagrid:
             columns:
                 id:
                     data_name: cs_order.id
+                orderStatus:
+                    data_name: cs_order.orderStatus
                 createdAt:
-                    data_name: cs_order.created_at
+                    data_name: cs_order.createdAt
                 updatedAt:
-                    data_name: cs_order.updated_at
+                    data_name: cs_order.updatedAt
                 updatedBy:
-                    data_name: cs_order.updated_by
+                    data_name: cs_order.updatedBy
             default:
+                orderStatus: ASC
                 id: DESC
         filters:
             columns:
