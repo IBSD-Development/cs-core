@@ -11,7 +11,7 @@ datagrid:
         columns:
             id:
               label: 'Serial No.'
-            accountId:
+            account:
               label: 'Customer'
             itemDescription:
               label: 'Description'
@@ -23,7 +23,7 @@ datagrid:
             itemRecommendedPrice:
               label: 'Recommended Price'
               frontend_type: 'decimal'
-            userId:
+            user:
               label: 'User'
             createdAt:
               label: 'Date Created'
@@ -65,7 +65,7 @@ datagrid:
                 id: DESC
         filters:
             columns:
-                accountId:
+                account:
                     type: number
                     data_name: cs_order.account_id
                 createdBy:

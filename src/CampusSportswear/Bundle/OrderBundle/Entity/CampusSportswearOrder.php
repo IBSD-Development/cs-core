@@ -18,9 +18,10 @@ class CampusSportswearOrder
     private $id;
 
     /**
-     * @ORM\Column(name="account_id", type="integer")
+     * @ORM\OneToOne(targetEntity="OroCRM\Bundle\AccountBundle\Entity\Account")
+     * @ORM\JoinColumn(name="account_id", referencedColumnName="id")
      */
-    private $accountId;
+    private $account;
 
     /**
      * @ORM\Column(name="item_description", type="text")
@@ -63,9 +64,10 @@ class CampusSportswearOrder
     private $orderStatus;
 
     /**
-     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\OneToOne(targetEntity="Oro\Bundle\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -78,7 +80,8 @@ class CampusSportswearOrder
     private $updatedAt;
 
     /**
-     * @ORM\Column(name="updated_by", type="integer")
+     * @ORM\OneToOne(targetEntity="Oro\Bundle\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="updated_by", referencedColumnName="id")
      */
     private $updatedBy;
 
@@ -333,37 +336,35 @@ class CampusSportswearOrder
     }
 
     /**
-     * Get account id of order
-     *
-     * @return account
+     * @return mixed
      */
-    public function getAccountId()
+    public function getAccount()
     {
-        return $this->accountId;
+        return $this->account;
     }
 
     /**
-     * @param mixed $accountId
+     * @param mixed $account
      */
-    public function setAccountId($accountId)
+    public function setAccount($account)
     {
-        $this->accountId = $accountId;
+        $this->account = $account;
     }
 
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $user
      */
-    public function setUserId($userId)
+    public function setUser($user)
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**
@@ -381,7 +382,5 @@ class CampusSportswearOrder
     {
         $this->updatedBy = $updatedBy;
     }
-
-
 }
 
