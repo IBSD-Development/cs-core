@@ -1,0 +1,60 @@
+{% extends 'OroUIBundle:actions:update.html.twig' %}
+{% form_theme form with 'OroFormBundle:Form:fields.html.twig' %}
+
+{% if form.vars.value.id %}
+    {% set formAction = path('campus_sportswear_order.order_update', { 'id': form.vars.value.id }) %}
+{% else %}
+    {% set formAction = path('campus_sportswear_order.order_create') %}
+{% endif %}
+
+{% block navButtons %}
+    {{ UI.cancelButton(path('campus_sportswear_order.order_summary')) }}
+    {% set html = UI.saveAndCloseButton() %}
+        {% set html = html ~ UI.saveAndStayButton() %}
+    {{ UI.dropdownSaveButton({ 'html': html }) }}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% if form.vars.value.id %}
+        {% set breadcrumbs = {
+        'entity':      form.vars.value,
+        'indexPath':   path('campus_sportswear_order.order_summary'),
+        'indexLabel': 'Orders'|trans,
+        'entityTitle': form.vars.value.account
+        } %}
+        {{ parent() }}
+    {% else %}
+        {% set title = 'oro.ui.create_entity'|trans({'%entityName%': 'Orders'|trans}) %}
+        {% include 'OroUIBundle::page_title_block.html.twig' with { title: title } %}
+    {% endif %}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set id = 'order-edit' %}
+
+    {% set dataBlocks = [{
+    'title': 'General'|trans,
+    'class': 'active',
+    'subblocks': [{
+    'title': '',
+    'data': [
+    form_row(form.account),
+    form_row(form.item_description),
+    form_row(form.item_quantity),
+    form_row(form.item_quoted_price),
+    form_row(form.item_recommended_price),
+    form_row(form.user),
+    form_row(form.comment),
+    form_row(form.item_graphic),
+    form_row(form.order_status),
+    form_row(form.order_address),
+    ]
+    }]
+    }]
+    %}
+    {% set data = {
+    'formErrors': form_errors(form)? form_errors(form) : null,
+    'dataBlocks': dataBlocks,
+    } %}
+    {{ parent() }}
+{% endblock content_data %}

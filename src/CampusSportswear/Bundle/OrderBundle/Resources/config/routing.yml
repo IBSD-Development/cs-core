@@ -2,6 +2,10 @@ campus_sportswear_order.order_summary:
     path:     /
     defaults: { _controller: CampusSportswearOrderBundle:Order:index }
 
+campus_sportswear_order.order_create:
+    path:     /orders/create
+    defaults: { _controller: CampusSportswearOrderBundle:Order:create }
+
 campus_sportswear_order.order_view:
     path:     /orders/{id}
     defaults: { _controller: CampusSportswearOrderBundle:Order:view }

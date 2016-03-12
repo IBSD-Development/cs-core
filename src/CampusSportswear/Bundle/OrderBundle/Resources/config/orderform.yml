@@ -1,0 +1,6 @@
+# src/CampusSportswearOrderBundle/Resources/config/orderform.yml
+services:
+    cs.form.type.order:
+        class: CampusSportswear\Bundle\OrderBundle\Form\Type\OrderType
+        tags:
+            - { name: form.type, alias: cs_order }

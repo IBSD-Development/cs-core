@@ -3,6 +3,14 @@
 {% set pageTitle = 'CampusSportswear'|trans %}
 
 {% block navButtons %}
-    {% set gridName = 'order-grid' %}
+    <div class="btn-group">
+        {{ UI.addButton({
+            'path': path('campus_sportswear_order.order_create'),
+            'entity_label': 'Order'|trans
+        }) }}
+    </div>
+{% endblock navButtons %}
 
-{% endblock %}
+{% block content_data %}
+    {% set gridName = 'order-grid' %}
+{% endblock content_data %}
