@@ -1,19 +1,4 @@
-campus_sportswear_order.order_summary:
-    path:     /
-    defaults: { _controller: CampusSportswearOrderBundle:Order:index }
-
-campus_sportswear_order.order_create:
-    path:     /orders/create
-    defaults: { _controller: CampusSportswearOrderBundle:Order:create }
-
-campus_sportswear_order.order_view:
-    path:     /orders/{id}
-    defaults: { _controller: CampusSportswearOrderBundle:Order:view }
-
-campus_sportswear_order.order_update:
-    path:     /orders/{id}/update
-    defaults: { _controller: CampusSportswearOrderBundle:Order:update }
-
-campus_sportswear_order.order_delete:
-    path:     /orders/{id}/delete
-    defaults: { _controller: CampusSportswearOrderBundle:Order:delete }
+campus_sportswear_order:
+    resource: "@CampusSportswearOrderBundle/Controller"
+    type: annotation
+    prefix: /orders

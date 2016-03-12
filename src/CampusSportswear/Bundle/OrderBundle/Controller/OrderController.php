@@ -6,15 +6,21 @@ use CampusSportswear\Bundle\OrderBundle\Entity\CampusSportswearOrder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class OrderController extends Controller
 {
+    /**
+     * @Route("/", name="campus_sportswear_order.order_summary")
+     * @Template("CampusSportswearOrderBundle:Default:index.html.twig")
+     */
     public function indexAction()
     {
-        return $this->render('CampusSportswearOrderBundle:Default:index.html.twig', array('gridName' => 'order-grid'));
+        return array('gridName' => 'order-grid');
     }
 
     /**
+     * @Route("/create", name="campus_sportswear_order.order_create")
      * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
      */
     public function createAction(Request $request)
@@ -25,6 +31,10 @@ class OrderController extends Controller
         return $this->update($order, $request);
     }
 
+    /**
+     * @Route("/{id}/update", name="campus_sportswear_order.order_update")
+     * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
+     */
     public function updateAction(CampusSportswearOrder $order, Request $request)
     {
         return $this->update($order, $request);
@@ -57,14 +67,22 @@ class OrderController extends Controller
         );
     }
 
+    /**
+     * @Route("/{id}", name="campus_sportswear_order.order_view")
+     * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
+     */
     public function viewAction()
     {
 
-        return $this->render('CampusSportswearOrderBundle:Default:index.html.twig', array('gridName' => 'order-grid'));
+        return array('gridName' => 'order-grid');
     }
 
+    /**
+     * @Route("/{id}/delete", name="campus_sportswear_order.order_delete")
+     * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
+     */
     public function deleteAction()
     {
-        return $this->render('CampusSportswearOrderBundle:Default:index.html.twig', array('gridName' => 'order-grid'));
+        return array('gridName' => 'order-grid');
     }
 }
