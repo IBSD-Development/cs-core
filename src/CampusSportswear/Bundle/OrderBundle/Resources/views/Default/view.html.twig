@@ -1,0 +1,55 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% set pageTitle = 'CampusSportswear | Order Details'|trans %}
+
+{% block navButtons %}
+        {{ UI.editButton({
+            'path' : path('campus_sportswear_order.order_update', { id: order.id}),
+            'entity_label': 'CampusSportswearOrder'|trans
+        }) }}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+    'entity':      CampusSportswearOrder,
+    'indexPath':   path('campus_sportswear_order.order_summary'),
+    'indexLabel': 'CampusSportswearOrder'|trans,
+    'entityTitle': order.id
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set id = 'orderView' %}
+    {% set data %}
+        <div class="widget-content">
+            <div class="row-fluid form-horizontal">
+                <div class="responsive-block">
+                    {{ UI.renderProperty('ID'|trans, order.id)}}
+                    {{ UI.renderProperty('Company'|trans, order.account) }}
+                    {{ UI.renderProperty('Item Description'|trans, order.itemDescription) }}
+                    {{ UI.renderProperty('Item Quantity'|trans, order.itemQuantity) }}
+                    {{ UI.renderProperty('Quoted Item Price'|trans, order.itemQuotedPrice) }}
+                    {{ UI.renderProperty('Recommended PRice'|trans, order.itemRecommendedPrice) }}
+                    {{ UI.renderProperty('Comments'|trans, order.comment) }}
+                    {{ UI.renderProperty('Graphic'|trans, order.itemGraphic) }}
+                    {{ UI.renderProperty('User'|trans, order.user) }}
+                    {{ UI.renderProperty('Created At'|trans, order.createdAt) }}
+                    {{ UI.renderProperty('Updated At'|trans, order.updatedAt) }}
+                    {{ UI.renderProperty('Updated By'|trans, order.updatedBy) }}
+                </div>
+            </div>
+        </div>
+    {% endset %}
+    {% set dataBlocks = [
+        {
+            'title': 'Data'|trans,
+            'class': 'active',
+            'subblocks': [
+        { 'data' : [data] }
+            ]
+        }
+    ] %}
+    {% set data = { 'dataBlocks': dataBlocks } %}
+    {{ parent() }}
+{% endblock content_data %}

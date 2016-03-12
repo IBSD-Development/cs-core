@@ -2,7 +2,10 @@
 
 namespace CampusSportswear\Bundle\OrderBundle\Controller;
 
+use CampusSportswear\Bundle\OrderBundle\Entity\CampusSportswearOrder;
+use Oro\Bundle\SecurityBundle\Annotation\AclAncestor;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class OrderController extends Controller
 {
@@ -14,9 +17,17 @@ class OrderController extends Controller
         return $this->render('CampusSportswearOrderBundle:Default:index.html.twig', array('gridName' => 'order-grid'));
     }
 
-    public function viewAction()
+    /**
+     * @param CampusSportswearOrder $order
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Template("CampusSportswearOrderBundle:Default:view.html.twig")
+     */
+    public function viewAction( CampusSportswearOrder $order)
     {
-        return $this->render('CampusSportswearOrderBundle:Default:index.html.twig', array('gridName' => 'order-grid'));
+        $logger = $this->get('logger');
+        $logger->info($order->getId());
+        $logger->crit($order->getId());
+        return array('order' => $order);
     }
 
     public function updateAction()
