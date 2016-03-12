@@ -4,6 +4,10 @@ namespace CampusSportswear\Bundle\OrderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+define('ORDER_NEW', 1);
+define('ORDER_ACCEPTED', 2);
+define('ORDER_REJECTED', 3);
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="cs_orders")

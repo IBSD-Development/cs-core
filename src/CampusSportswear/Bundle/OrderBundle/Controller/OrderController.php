@@ -3,6 +3,7 @@
 namespace CampusSportswear\Bundle\OrderBundle\Controller;
 
 use CampusSportswear\Bundle\OrderBundle\Entity\CampusSportswearOrder;
+use Oro\Bundle\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -22,18 +23,24 @@ class OrderController extends Controller
     /**
      * @Route("/create", name="campus_sportswear_order.order_create")
      * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
+     * @param Request $request
+     * @return array
      */
     public function createAction(Request $request)
     {
         $order = new CampusSportswearOrder();
         $order->setCreatedAt(new \DateTime());
         $order->setUpdatedAt(new \DateTime());
+        $order->setOrderStatus(ORDER_NEW);
         return $this->update($order, $request);
     }
 
     /**
-     * @Route("/{id}/update", name="campus_sportswear_order.order_update")
+     * @Route("/{id}/update", name="campus_sportswear_order.order_update", requirements={"id"="\d+"})
      * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
+     * @param CampusSportswearOrder $order
+     * @param Request $request
+     * @return array
      */
     public function updateAction(CampusSportswearOrder $order, Request $request)
     {
@@ -47,6 +54,8 @@ class OrderController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $order->setUpdatedAt(new \DateTime());
+            $order->setUpdatedBy($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
@@ -68,7 +77,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="campus_sportswear_order.order_view")
+     * @Route("/{id}", name="campus_sportswear_order.order_view", requirements={"id"="\d+"})
      * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
      */
     public function viewAction()
@@ -78,7 +87,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @Route("/{id}/delete", name="campus_sportswear_order.order_delete")
+     * @Route("/{id}/delete", name="campus_sportswear_order.order_delete", requirements={"id"="\d+"})
      * @Template("CampusSportswearOrderBundle:Default:update.html.twig")
      */
     public function deleteAction()

@@ -1,5 +1,5 @@
 <?php
-namespace CampusSportswear\Bundle\OrderBundle\Migrations\Schema\v1_0;
+namespace CampusSportswear\Bundle\OrderBundle\Migrations\Schema\v1_1;
 
 use Doctrine\DBAL\Schema\Schema;
 use Oro\Bundle\MigrationBundle\Migration\Migration;

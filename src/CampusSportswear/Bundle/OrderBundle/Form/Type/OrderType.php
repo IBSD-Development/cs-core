@@ -10,17 +10,77 @@ class OrderType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('account')
-            ->add('item_description')
-            ->add('item_quantity')
-            ->add('item_quoted_price')
-            ->add('item_recommended_price')
-            ->add('user')
-            ->add('comment')
-            ->add('item_graphic')
-            ->add('order_status')
-            ->add('order_address');
+        $builder->add(
+            'account',
+            'orocrm_account_select',
+            [
+                'required' => true,
+                'label'    => 'Customer'
+            ]
+        );
+        $builder->add(
+            'item_description',
+            'textarea',
+            [
+                'required' => false,
+                'label'    => 'Order Description',
+            ]
+        );
+        $builder->add(
+            'item_quantity',
+            'integer',
+            [
+                'required' => true,
+                'label' => 'Item Quantity'
+            ]
+        );
+        $builder->add(
+            'item_quoted_price',
+            'number',
+            [
+                'required' => true,
+                'label' => 'Quoted Price'
+            ]
+        );
+        $builder->add(
+            'item_recommended_price',
+            'number',
+            [
+                'required' => true,
+                'label' => 'Recommended Price'
+            ]
+        );
+        $builder->add(
+            'comment',
+            'text',
+            [
+                'label' => 'Comment'
+            ]
+        );
+        $builder->add(
+            'item_graphic',
+            'text',
+            [
+                'required' => false,
+                'label' => 'Image'
+            ]
+        );
+        $builder->add(
+            'order_address',
+            'textarea',
+            [
+                'required' => false,
+                'label' => 'Shipping Address'
+            ]
+        );
+        $builder->add(
+            'user',
+            'oro_user_select',
+            [
+                'required' => true,
+                'label'    => 'User'
+            ]
+        );
     }
 
     public function configureOptions(OptionsResolver $resolver)
