@@ -1,0 +1,17 @@
+# src/CampusSportswearOrderBundle/Resources/config/navigation.yml
+oro_menu_config:
+    items:
+        cs_orders:
+            label: Orders
+            route: campus_sportswear_order.order_summary
+            extras:
+                position: 300
+        cs_orders_create:
+            label: Create Order
+            route: campus_sportswear_order.order_create
+    tree:
+        application_menu:
+            children:
+                cs_orders:
+                    children:
+                        cs_orders_create: ~
